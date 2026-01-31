@@ -3,7 +3,7 @@ import { Footer } from "@/components/layout/Footer";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Textarea } from "@/components/ui/textarea"; // Assuming Textarea exists or falls back to Input if not, but standard shadcn has it. I'll check/add if needed or just use standard HTML area styled.
+
 import { Mail, Phone, MapPin } from "lucide-react";
 
 export default function ContactPage() {
