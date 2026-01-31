@@ -50,28 +50,30 @@
   --radius: 0.5rem;
   /* Cream Background */
   --background: #FFF8DE;
-  /* Deep Blue Foreground */
-  --foreground: #576A8F;
+  /* Dark Grey Foreground (was Deep Blue) */
+  --foreground: #171717;
 
   /* Card and Popovers same as background or slightly lighter/white */
   --card: #FFFFFF;
-  --card-foreground: #576A8F;
+  --card-foreground: #171717;
   --popover: #FFFFFF;
-  --popover-foreground: #576A8F;
+  --popover-foreground: #171717;
 
   /* Coral Orange */
   --primary: #FF7444;
   --primary-foreground: #FFFFFF;
 
-  /* Deep Blue */
-  --secondary: #576A8F;
-  --secondary-foreground: #FFF8DE;
+  /* White (was Deep Blue) */
+  --secondary: #FFFFFF;
+  --secondary-foreground: #171717;
 
   /* Periwinkle Accent */
-  --muted: #F0F2FF; /* Lighter version of accent for muted backgrounds */
-  --muted-foreground: #7D8BA1; /* Lighter blue for muted text */
+  --muted: #F0F2FF;
+  /* Lighter version of accent for muted backgrounds */
+  --muted-foreground: #7D8BA1;
+  /* Lighter blue for muted text */
   --accent: #B7BDF7;
-  --accent-foreground: #576A8F;
+  --accent-foreground: #171717;
 
   --destructive: #ef4444;
   --destructive-foreground: #FFFFFF;
@@ -87,11 +89,11 @@
   --chart-5: #FFF8DE;
 
   --sidebar: #FFF8DE;
-  --sidebar-foreground: #576A8F;
+  --sidebar-foreground: #171717;
   --sidebar-primary: #FF7444;
   --sidebar-primary-foreground: #FFFFFF;
   --sidebar-accent: #B7BDF7;
-  --sidebar-accent-foreground: #576A8F;
+  --sidebar-accent-foreground: #171717;
   --sidebar-border: #E2E8F0;
   --sidebar-ring: #FF7444;
 }
@@ -146,6 +148,7 @@
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground;
   }
