@@ -1,26 +1,152 @@
 @import "tailwindcss";
+@import "tw-animate-css";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@custom-variant dark (&:is(.dark *));
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-inter);
+  --font-heading: var(--font-outfit);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+:root {
+  --radius: 0.5rem;
+  /* Cream Background */
+  --background: #FFF8DE;
+  /* Deep Blue Foreground */
+  --foreground: #576A8F;
+
+  /* Card and Popovers same as background or slightly lighter/white */
+  --card: #FFFFFF;
+  --card-foreground: #576A8F;
+  --popover: #FFFFFF;
+  --popover-foreground: #576A8F;
+
+  /* Coral Orange */
+  --primary: #FF7444;
+  --primary-foreground: #FFFFFF;
+
+  /* Deep Blue */
+  --secondary: #576A8F;
+  --secondary-foreground: #FFF8DE;
+
+  /* Periwinkle Accent */
+  --muted: #F0F2FF; /* Lighter version of accent for muted backgrounds */
+  --muted-foreground: #7D8BA1; /* Lighter blue for muted text */
+  --accent: #B7BDF7;
+  --accent-foreground: #576A8F;
+
+  --destructive: #ef4444;
+  --destructive-foreground: #FFFFFF;
+
+  --border: #E2E8F0;
+  --input: #E2E8F0;
+  --ring: #FF7444;
+
+  --chart-1: #FF7444;
+  --chart-2: #576A8F;
+  --chart-3: #B7BDF7;
+  --chart-4: #FF9F7D;
+  --chart-5: #FFF8DE;
+
+  --sidebar: #FFF8DE;
+  --sidebar-foreground: #576A8F;
+  --sidebar-primary: #FF7444;
+  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-accent: #B7BDF7;
+  --sidebar-accent-foreground: #576A8F;
+  --sidebar-border: #E2E8F0;
+  --sidebar-ring: #FF7444;
+}
+
+.dark {
+  /* Ideally we'd invert this, but the user gave specific colors which are light-themed. 
+     For now, mapping a dark mode might look different, but let's keep it consistent or use the deep blue as background.
+  */
+  --background: #576A8F;
+  --foreground: #FFF8DE;
+
+  --card: #4A5B7D;
+  --card-foreground: #FFF8DE;
+  --popover: #4A5B7D;
+  --popover-foreground: #FFF8DE;
+
+  --primary: #FF7444;
+  --primary-foreground: #FFFFFF;
+
+  --secondary: #FFF8DE;
+  --secondary-foreground: #576A8F;
+
+  --muted: #4A5B7D;
+  --muted-foreground: #B7BDF7;
+  --accent: #6C7E9F;
+  --accent-foreground: #FFF8DE;
+
+  --destructive: #ef4444;
+  --destructive-foreground: #FFFFFF;
+
+  --border: #6C7E9F;
+  --input: #6C7E9F;
+  --ring: #FF7444;
+
+  --chart-1: #FF7444;
+  --chart-2: #576A8F;
+  --chart-3: #B7BDF7;
+  --chart-4: #FF9F7D;
+  --chart-5: #FFF8DE;
+
+  --sidebar: #576A8F;
+  --sidebar-foreground: #FFF8DE;
+  --sidebar-primary: #FF7444;
+  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-accent: #4A5B7D;
+  --sidebar-accent-foreground: #FFF8DE;
+  --sidebar-border: #6C7E9F;
+  --sidebar-ring: #FF7444;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
   }
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  body {
+    @apply bg-background text-foreground;
+  }
 }
